@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron/main");
+const { app, BrowserWindow, ipcMain } = require("electron/main");
 const path = require("node:path");
 
 // Function to create the main window
@@ -16,6 +16,7 @@ const createWindow = () => {
 
 // Create the main window when the app is ready
 app.whenReady().then(() => {
+  ipcMain.handle("ping", () => "pong");
   createWindow();
 
   // Re-create the main window when the app is activated (on macOS)
