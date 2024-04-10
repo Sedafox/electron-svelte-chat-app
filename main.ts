@@ -19,3 +19,13 @@ app.whenReady().then(() => {
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
+
+// Wait for the app to be ready and then create the window
+app.whenReady().then(() => {
+  createWindow();
+
+  // Activate the app when the window is closed
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+});
