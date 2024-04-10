@@ -10,22 +10,17 @@ const createWindow = () => {
   win.loadFile("index.html");
 };
 
-// Wait for the app to be ready and then create the window
+// Create the main window when the app is ready
 app.whenReady().then(() => {
   createWindow();
+
+  // Re-create the main window when the app is activated (on macOS)
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
 });
 
 // Quit the app when all windows are closed (except on macOS)
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
-});
-
-// Wait for the app to be ready and then create the window
-app.whenReady().then(() => {
-  createWindow();
-
-  // Activate the app when the window is closed
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
 });
