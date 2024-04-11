@@ -131,3 +131,9 @@ dist
 
 # typescript
 dist*
+
+# svelte
+/node_modules/
+/public/build/
+
+.DS_Store

@@ -2,10 +2,14 @@
   "name": "my-electron-app",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/main.js",
+  "main": "index.cjs",
+  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "npm run build && electron-forge start",
+    "build:ts": "tsc",
+    "build:svelte": "rollup -c",
+    "dev": "rollup -c -w",
+    "start:svelte": "sirv public --no-clear",
+    "start": "npm run build:ts && npm run build:svelte && electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
     "make": "electron-forge make"
@@ -20,11 +24,20 @@
     "@electron-forge/maker-zip": "^7.3.1",
     "@electron-forge/plugin-auto-unpack-natives": "^7.3.1",
     "@electron-forge/plugin-fuses": "^7.3.1",
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/electron": "^1.6.10",
     "electron": "^29.2.0",
+    "rollup": "^3.15.0",
+    "rollup-plugin-css-only": "^4.3.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.1.2",
+    "svelte": "^3.55.0",
     "typescript": "^5.4.4"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "sirv-cli": "^2.0.0"
   }
 }
