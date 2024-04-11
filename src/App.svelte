@@ -29,18 +29,5 @@
 </main>
 
 <style>
-  #message-list {
-    height: 80vh;
-    overflow-y: scroll;
-  }
-  .message {
-    margin-bottom: 1em;
-  }
-  #message-input {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
+  @import "./App.css";
 </style>
