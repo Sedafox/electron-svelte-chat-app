@@ -10,10 +10,11 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {},
+      platforms: []
     },
     {
-      name: '@electron-forge/maker-zip',
-      platforms: ['darwin'],
+      name: '@electron-forge/maker-wix',
+      platforms: [],
     },
     {
       name: '@electron-forge/maker-deb',
@@ -23,6 +24,14 @@ module.exports = {
       name: '@electron-forge/maker-rpm',
       config: {},
     },
+    {
+  name: '@electron-forge/maker-zip',
+  platforms: ['darwin', 'win32'],
+  config: {
+    // Config here
+  }
+},
+    
   ],
   plugins: [
     {
@@ -42,3 +51,5 @@ module.exports = {
     }),
   ],
 };
+
+

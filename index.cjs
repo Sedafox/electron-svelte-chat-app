@@ -1,5 +1,5 @@
-const { app, BrowserWindow, ipcMain } = require("electron/main");
-const path = require("node:path");
+const { app, ipcMain, BrowserWindow } = require("electron");
+const path = require("path");
 
 // Function to create the main window
 const createWindow = () => {
@@ -7,11 +7,11 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, "preload.ts"),
     },
   });
 
-  win.loadFile("index.html");
+  win.loadFile(path.join(__dirname, "public/index.html"));
 };
 
 // Create the main window when the app is ready

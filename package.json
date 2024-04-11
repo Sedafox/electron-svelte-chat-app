@@ -2,13 +2,17 @@
   "name": "my-electron-app",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/main.js",
+  "main": "index.cjs",
+  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "electron-forge start",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ts": "tsc",
+    "build:svelte": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "npm run build:ts && npm run build:svelte && electron-forge start",
+    "start:svelte": "sirv public --no-clear",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "check": "svelte-check"
   },
   "author": "",
   "license": "ISC",
@@ -17,14 +21,32 @@
     "@electron-forge/maker-deb": "^7.3.1",
     "@electron-forge/maker-rpm": "^7.3.1",
     "@electron-forge/maker-squirrel": "^7.3.1",
+    "@electron-forge/maker-wix": "^7.3.1",
     "@electron-forge/maker-zip": "^7.3.1",
     "@electron-forge/plugin-auto-unpack-natives": "^7.3.1",
     "@electron-forge/plugin-fuses": "^7.3.1",
+    "@rollup/plugin-alias": "^5.1.0",
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@tsconfig/svelte": "^3.0.0",
     "@types/electron": "^1.6.10",
     "electron": "^29.2.0",
-    "typescript": "^5.4.4"
+    "electron-wix-msi": "^5.1.3",
+    "rollup": "^3.15.0",
+    "rollup-plugin-css-only": "^4.3.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-svelte": "^7.1.2",
+    "svelte": "^3.55.0",
+    "svelte-check": "^3.0.0",
+    "svelte-preprocess": "^5.0.0",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "sirv-cli": "^2.0.0"
   }
 }
