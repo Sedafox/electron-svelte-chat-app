@@ -9,6 +9,7 @@
     "build:svelte": "rollup -c",
     "dev": "rollup -c -w",
     "start": "npm run build:ts && npm run build:svelte && electron-forge start",
+    "start:svelte": "sirv public --no-clear",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "check": "svelte-check"
