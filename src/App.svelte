@@ -1,4 +1,5 @@
 <script>
+  import "@/App.css";
   let messages = [
     { sender: "User1", text: "Hello!" },
     { sender: "User2", text: "Hi, how are you?" },
@@ -27,7 +28,3 @@
     <button on:click={sendMessage}>Send</button>
   </div>
 </main>
-
-<style>
-  @import "./App.css";
-</style>

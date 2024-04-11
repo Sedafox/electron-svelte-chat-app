@@ -12,15 +12,17 @@ main {
     border-radius: 4px;
     padding: 1em;
     margin-bottom: 1em;
-    background-color: #fff;
+    background-color: #fef4f4;
 }
 
 .message {
     margin-bottom: 1em;
-    /* This creates space below each message */
     padding: 0.5em;
-    border-radius: 4px;
-    background-color: #e9e9e9;
+    border: 1px solid #ddd;
+    /* Add a border */
+    border-radius: 15px;
+    /* Increase border radius for a bubble-like appearance */
+    background-color: #f1ecec;
 }
 
 #message-input {
