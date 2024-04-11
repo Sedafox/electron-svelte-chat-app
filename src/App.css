@@ -1,4 +1,14 @@
 /* App.css */
+
+.app {
+    height: 100vh;
+    /* 100% of the viewport height */
+    width: 100vw;
+    /* 100% of the viewport width */
+    overflow: auto;
+    /* Add scroll if content overflows */
+}
+
 main {
     font-family: Arial, sans-serif;
     padding: 1em;
@@ -51,6 +61,7 @@ main {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
+    margin-right: 3em;
 }
 
 #message-input button:hover {

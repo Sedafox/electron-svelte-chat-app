@@ -13,18 +13,20 @@
   }
 </script>
 
-<main>
-  <div id="message-list">
-    {#each messages as message (message.text)}
-      <div class="message">
-        <strong>{message.sender}:</strong>
-        {message.text}
-      </div>
-    {/each}
-  </div>
+<div class="app">
+  <main>
+    <div id="message-list">
+      {#each messages as message (message.text)}
+        <div class="message">
+          <strong>{message.sender}:</strong>
+          {message.text}
+        </div>
+      {/each}
+    </div>
 
-  <div id="message-input">
-    <input bind:value={newMessage} placeholder="Type a message..." />
-    <button on:click={sendMessage}>Send</button>
-  </div>
-</main>
+    <div id="message-input">
+      <input bind:value={newMessage} placeholder="Type a message..." />
+      <button on:click={sendMessage}>Send</button>
+    </div>
+  </main>
+</div>
