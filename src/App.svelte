@@ -3,12 +3,10 @@
   let messages = [
     { sender: "User1", text: "Hello!" },
     { sender: "User2", text: "Hi, how are you?" },
-    // Add more messages here...
   ];
   let newMessage = "";
-
   function sendMessage() {
-    messages.push({ sender: "User1", text: newMessage });
+    messages = [...messages, { sender: "user", text: newMessage }]; // Create a new array
     newMessage = "";
   }
 </script>
@@ -23,7 +21,6 @@
         </div>
       {/each}
     </div>
-
     <div id="message-input">
       <input bind:value={newMessage} placeholder="Type a message..." />
       <button on:click={sendMessage}>Send</button>
